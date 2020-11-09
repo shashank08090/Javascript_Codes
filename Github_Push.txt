@@ -1,0 +1,9 @@
+First create a online account and a repository in your github account and follow the steps:
+
+1.git -init
+
+2.git add .
+
+3.git commit -m “commit message name”
+
+4.git push <github repository url>
