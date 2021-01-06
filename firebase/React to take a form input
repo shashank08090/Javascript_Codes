@@ -1,0 +1,49 @@
+import React , {useState} from 'react' ;
+import {db} from './config/fire' ;
+
+
+export default function Avdojo() {
+  const [x, setx] = useState("");
+
+  
+  //const [loader, setLoader] = useState(false);
+
+  const Submit = (e) => {
+    e.preventDefault();
+    //setLoader(true);
+
+    db.collection("contacts")
+      .add({
+        name: x,
+        
+      })
+      .then(() => {
+        //setLoader(false);
+        alert("Your message has been submitted👍");
+      })
+      .catch((error) => {
+        alert(error.message);
+        //setLoader(false);
+      });
+
+    //setx("");
+   
+  };
+  return (
+    <div>
+       <form className="form" onSubmit={Submit}>
+      <h1>Contact Us 🤳</h1>
+
+      <label>Label Black</label> <br></br>
+      <input
+        placeholder="Name"
+        value={x}
+        onChange={(e) => setx(e.target.value)}
+      />
+        <button type="submit" >give us your details Baby Boo</button>
+         </form> </div> 
+  )
+}
+
+
+
